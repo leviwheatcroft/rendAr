@@ -1,7 +1,7 @@
 /*
 ---
 script: rendAr.js
-version: v0.3
+version: v0.4
 description: rendAr utilises the Mootools Slick engine to generate DOM objects from clean, elegant templates.
 license: MIT-style
 download: http://mootools.net/forge/p/rendar/v0.1
