@@ -23,87 +23,89 @@ Templates are definied in an array structure, the arrays can contain:
 rendAr is implemented as a function in the Array class. So simply declare your array, and call rendAr().
 
 The format for the Slick engine markup is:
-element.class#id[attribute1=value][attribute2=value]...
+
+	element.class#id[attribute1=value][attribute2=value]...
 
 as in:
-a.myClass#myId[href=mootools.net][text=Get Mootools]
+
+	a.myClass#myId[href=mootools.net][text=Get Mootools]
 
 The element itself, is the only mandatory portion of the markup, the rest is optional.
 
 A simple example:
 
-   var template = [
-      'ul.listClass#listId', [
-         'li[text=Hello]',
-         'li[text=World]'
-      ]
-   ];
-   var element = template.rendAr();
-   $$('body').adopt(element);
-   
+	var template = [
+		'ul.listClass#listId', [
+			'li[text=Hello]',
+			'li[text=World]'
+		]
+	];
+	var element = template.rendAr();
+	$$('body').adopt(element);
+	
 On the fly:
 
-   $$('body').adopt(([
-      'ul.listClass#listId', [
-         'li[text=Hello]',
-         'li[text=World]'
-      ]
-   ]).rendAr());
-   
+	$$('body').adopt(([
+		'ul.listClass#listId', [
+			'li[text=Hello]',
+			'li[text=World]'
+		]
+	]).rendAr());
+	
 Setting styles & events:
 
-   var template = [
-      'ul.listClass#listId', [
-         'li[text=Hello]',
-         'li[text=World]'
-      ],
-      'div.button[text=Click Me]', {
-            styles: {
-               backgroundColor: '#323288'
-            },
-            events: {
-               click: function() { console.log('Hello World'); }
-            }
-      },
-   ];
-   $$('body').adopt(template.rendAr());
+	var template = [
+		'ul.listClass#listId', [
+			'li[text=Hello]',
+			'li[text=World]'
+		],
+		'div.button[text=Click Me]', {
+				styles: {
+					backgroundColor: '#323288'
+				},
+				events: {
+					click: function() { console.log('Hello World'); }
+				}
+		},
+	];
+	$$('body').adopt(template.rendAr());
 
 Dynamic Templates:
 
 Easy.. just pass a function which return's the template you require:
 
-   var template = function(foobar) { return [
-      'ul.listClass#listId', 
-         [
-         'li[text=Hello]',
-         'li[text=' + foobar + ']'
-         ]
-      ];
-   };
-   $$('body').adopt(template('World').rendAr());
-   
+	var template = function(foobar) { return [
+		'ul.listClass#listId', 
+			[
+			'li[text=Hello]',
+			'li[text=' + foobar + ']'
+			]
+		];
+	};
+	$$('body').adopt(template('World').rendAr());
+	
 Nested Templates:
 
 No problem.. remember your just dealing with an array structure - juggle it how you like:
 
-   //if your 'inner' template looks like this:
-   var template = [
-      'li[text=Hello]',
-      'li[text=World']'
-   ];
+	//if your 'inner' template looks like this:
+	var template = [
+		'li[text=Hello]',
+		'li[text=World']'
+	];
 
-   //then this is the wrong way (but will work anyway):
-   $$('body').adopt(([
-      'ul.listClass#listId', 
-         [ template.rendAr() ]
-   ]).rendAr());
+	//then this is the wrong way (but will work anyway):
+	$$('body').adopt(([
+		'ul.listClass#listId', 
+			[ template.rendAr() ]
+	]).rendAr());
 
-   //and this is the right way:
-   $$('body').adopt(([
-      'ul.listClass#listId', 
-         template
-   ]).rendAr());
-   
+	//and this is the right way:
+	$$('body').adopt(([
+		'ul.listClass#listId', 
+			template
+	]).rendAr());
+	
 See '.\Demo\index.htm' for more.
 
 Known Bugs
