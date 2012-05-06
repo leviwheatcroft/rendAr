@@ -15,7 +15,8 @@ Just remember that:
 - Any objects contained in your template, will be passed to 'set' on the preceding element.
 
 A simple example:
-  var template = [
+
+	var template = [
 		'ul.listClass#listId', [
 			'li[text=Hello]',
 			'li[text=World]'
@@ -25,6 +26,7 @@ A simple example:
 	$$('body').adopt(element);
 	
 On the fly:
+
 	$$('body').adopt(([
 		'ul.listClass#listId', [
 			'li[text=Hello]',
