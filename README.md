@@ -8,7 +8,13 @@ A neat way to generate complex HTML objects from clean elegant syntax.
 How To Use
 ----------
 
-MooTools awesome Slick engine can create elements from declarations like 'tag.class#id'. rendAr simply feeds an array structure (template) through the Slick engine. 
+MooTools awesome Slick engine can create elements from declarations like 'tag.class#id'. rendAr simply feeds an array structure (template) through the Slick engine. It's an easy way to generate complex DOM structures complete with styles and events.
+
+So the format for the Slick engine markup is:
+element.class#id[attribute1=value][attribute2=value]...
+
+as in:
+a.myClass#myId[href=mootools.net][text=Get Mootools]
 
 Just remember that:
 - Any arrays contained in your template, will be adopted by (inserted into) the preceding element.

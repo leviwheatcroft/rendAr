@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script language="Javascript" type="text/javascript">google.load("mootools", "1.3.0");</script>
+<script type="text/javascript" src='../Source/rendAr.js'></script>
+</HEAD>
+<BODY>
+<script type='text/javascript'>
+window.addEvent('domready', function() {
+
+	$$('body').adopt((['p[text=Please view the page source...]']).rendAr());
+
+	//  a simple template
+	//------------------------------------------------------------------------
+	var template = [
+		'p[text=List One]',
+		'ul.list#one', [
+			'li[text=one]',
+			'li[text=two]',
+			'li[text=three]',
+			],
+		'p[text=List Two]',
+		'ul.list#two', [
+			'li[text=four]',
+			'li[text=five]',
+			'li[text=six]',
+			],
+	];
+	var element = template.rendAr();
+	$$('body').adopt(element);
+
+	//  on the fly
+	//------------------------------------------------------------------------
+	$$('body').adopt(([
+		'p[text=List Three]',
+		'ul.list#one', [
+			'li[text=one]',
+			'li[text=two]',
+			'li[text=three]',
+			],
+		'p[text=List Four]',
+		'ul.list#two', [
+			'li[text=four]',
+			'li[text=five]',
+			'li[text=six]',
+			],
+	]).rendAr());
+	
+	
+	//  applying styles
+	//------------------------------------------------------------------------
+	
+	var template = [
+			'div#outer',
+				{ styles: { backgroundColor: '#ffa0a0', width: 100, height: 200, padding: 20 }	},
+				[
+				'div#left',
+					{ styles: { backgroundColor: '#a0a0ff', width: 100, height: 100 }	},
+				'div#right',
+					{ styles: { backgroundColor: '#a0ffa0', width: 100, height: 100 }	},
+				],
+		];
+	$$('body').adopt(template.rendAr());
+	
+	//  applying events
+	//------------------------------------------------------------------------
+	var template = [
+		'div', {
+			styles: {
+				backgroundColor: '#a0a0ff',
+				marginTop: 20,
+				width: 100,
+				height: 100
+			},
+			events: {
+				mouseenter: function() { this.setStyle('backgroundColor', '#a0ffa0'); },
+				mouseleave: function() { this.setStyle('backgroundColor', '#a0a0ff'); },
+			}
+		}
+	];
+	$$('body').adopt(template.rendAr());
+	
+	//  dynamic templates
+	//------------------------------------------------------------------------
+	var template = function (text, width) { 
+		return [
+			'div', [
+				'p[text=' + text + ']'
+			],
+			{ styles: { height: 60, width: width, marginTop: 20, border: '2px solid #000' }}
+		];
+	};
+	$$('body').adopt(template('wide', 100).rendAr());
+	$$('body').adopt(template('wider', 150).rendAr());
+	$$('body').adopt(template('widest', 200).rendAr());
+	
+	//  nested templates
+	//------------------------------------------------------------------------
+	
+	var template1 = function(number) {
+		var template = [];
+		for (var i=1;i<=number;i++) template.push('li[text=' + i + ']');
+		return template;
+	};
+	var template2 = [
+		'ul', 
+			template1(4)
+		
+	];
+	var template3 = [
+		'div', {
+			styles: { border: '2px solid #000', marginTop: 20 }
+		}, [
+			'p[text=foobar]',
+			template2
+		]
+	];
+	$$('body').adopt(template3.rendAr());
+	
+});
+
+</script>
+</BODY>
