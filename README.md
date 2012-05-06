@@ -5,10 +5,7 @@ A neat way to generate complex HTML objects from clean elegant syntax.
 
 MooTools awesome Slick engine can create elements from declarations like 'tag.class#id'. rendAr simply feeds an array structure (template) through the Slick engine. It's an easy way to generate complex DOM structures complete with styles and events. 
 
-Why use rendAr? 
- - It's trully tiny. **The minified version weighs in at just 358b** - thats right, less than 1kb. 
- - The array structure is intuitive, takes a moment to master, and is easily readable.
- - Super simple to handle, just declare your array, and rendAr it.
+Why use rendAr? It's trully tiny **The minified version weighs in at just 358b** - thats right, less than 1kb. The array structure is intuitive, takes a moment to master, and is easily readable. It's Super simple to handle, just declare your array, and rendAr it.
 
 ![Screenshot](http://github.com/Mr5o1/rendAr/raw/master/screenshot.png)
 
