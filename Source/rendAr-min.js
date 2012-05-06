@@ -1,0 +1,1 @@
+Array.implement({rendAr:function(){var a=[];this.each(function(b){if(typeOf(b)=="element")a.push(b);else if(typeOf(b)=="string")a.push(new Element(b));else if(typeOf(b)=="elements")b.each(function(b){a.push(b)});else if(typeOf(b)=="array")a[a.length-1].adopt(b.rendAr());else if(typeOf(b)=="object")a[a.length-1].set(b)});return a[1]?new Elements(a):a[0]}})

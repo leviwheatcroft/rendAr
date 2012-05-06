@@ -24,15 +24,15 @@ requires:
 
 
 Array.implement({
-	rendAr: function() {
-		var el = [];
-			this.each(function(item) {
-				if (typeOf(item) == 'element') el.push(item);
-				else if (typeOf(item) == 'string') el.push(new Element(item));
-				else if (typeOf(item) == 'elements') item.each(function(i) {el.push(i);});
-				else if (typeOf(item) == 'array') el[el.length - 1].adopt(item.rendAr());
-				else if (typeOf(item) == 'object') el[el.length - 1].set(item);
-			});
-		return el[1] ? new Elements(el) : el[0]; 
-	}
+   rendAr: function() {
+      var el = [];
+         this.each(function(item) {
+            if (typeOf(item) == 'element') el.push(item);
+            else if (typeOf(item) == 'string') el.push(new Element(item));
+            else if (typeOf(item) == 'elements') item.each(function(i) {el.push(i);});
+            else if (typeOf(item) == 'array') el[el.length - 1].adopt(item.rendAr());
+            else if (typeOf(item) == 'object') el[el.length - 1].set(item);
+         });
+      return el[1] ? new Elements(el) : el[0]; 
+   }
 });
