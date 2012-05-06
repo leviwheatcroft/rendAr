@@ -6,7 +6,7 @@ description: rendAr utilises the Mootools Slick engine to generate DOM objects f
 license: MIT-style
 download: http://mootools.net/forge/p/rendar/v0.1
 source: https://github.com/Mr5o1/rendAr
-demo: https://raw.github.com/Mr5o1/rendAr/master/Demo/index.htm
+demo: http://leviwheatcroft.com/rendAr/demo.htm
 
 authors:
 - Levi Wheatcroft (leviwheatcroft.com)
